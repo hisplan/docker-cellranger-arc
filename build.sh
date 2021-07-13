@@ -2,4 +2,6 @@
 
 source config.sh
 
-docker build -t ${image_name}:${version} .
+docker build \
+    --tag ${image_name}:${version} \
+    --build-arg DOWNLOAD_URL=${download_url} .

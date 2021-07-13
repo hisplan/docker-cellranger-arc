@@ -15,7 +15,10 @@ cat Dockerfile \
 cat Dockerfile.cromwell
 
 # build it
-docker build -t ${image_name}:${version} -f Dockerfile.cromwell .
+docker build \
+    --tag ${image_name}:${version} \
+    --build-arg DOWNLOAD_URL=${download_url} \
+    --file Dockerfile.cromwell .
 
 echo "Packaging ${registry}/${image_name}:${version}..."
 
