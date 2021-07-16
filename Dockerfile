@@ -2,7 +2,7 @@ FROM centos:7
 
 LABEL maintainer="Jaeyoung Chun (chunj@mskcc.org)"
 
-ENV CELLRANGER_ARC_VERSION 2.0.0
+ARG CELLRANGER_ARC_VERSION
 ARG DOWNLOAD_URL
 ENV PATH /opt/cellranger-arc-${CELLRANGER_ARC_VERSION}:$PATH
 

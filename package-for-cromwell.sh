@@ -18,6 +18,7 @@ cat Dockerfile.cromwell
 docker build \
     --tag ${image_name}:${version} \
     --build-arg DOWNLOAD_URL=${download_url} \
+    --build-arg CELLRANGER_ARC_VERSION=${version} \
     --file Dockerfile.cromwell .
 
 echo "Packaging ${registry}/${image_name}:${version}..."
