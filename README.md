@@ -1,27 +1,24 @@
-# Dockerized Cell Ranger ARC v2.0.0
+# docker-cellranger-arc
+
+Dockerized Cell Ranger ARC v2.0.0
 
 ## Build Container Image
 
+SCING (Single-Cell pIpeliNe Garden; pronounced as "sing" /siŋ/) is required for smooth and uninteruppted build process (e.g. CI/CD). For setup, please refer to [this page](https://github.com/hisplan/scing). All the instructions below is given under the assumption that you have already configured SCING in your environment.
+
+[SCING](https://github.com/hisplan/scing) installation is required.
+
 ```bash
+conda activate scing
+
 ./build.sh
-```
-
-`build.sh` can fail if the download link has expired (10x expires the Cell Ranger download link periodically). In this case, get the fresh link from https://support.10xgenomics.com/single-cell-multiome-atac-gex/software/downloads/2.0, and open `config.sh` and replace `${FRESH_LINK}` with the new link:
-
-```
-version="2.0.0"
-download_url="${FRESH_LINK}"
-
-# docker related
-registry="quay.io/hisplan"
-image_name="cellranger-arc"
 ```
 
 ## Push to Docker Registry
 
-Either you can use the `docker push` command or run `push.sh` (requires [SCING](https://github.com/hisplan/scing)):
-
 ```bash
+conda activate scing
+
 ./push.sh
 ```
 
